@@ -111,6 +111,10 @@ extension UIView {
         flowDelegate = SkeletonFlowHandler()
         flowDelegate?.willBeginShowingSkeletons(rootView: self)
         recursiveShowSkeleton(skeletonConfig: config, root: self)
+        if self is UILabel {
+            let label = self as! UILabel
+            label.text = ""
+        }
     }
 
     private func recursiveShowSkeleton(skeletonConfig config: SkeletonConfig, root: UIView? = nil) {
